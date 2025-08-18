@@ -43,7 +43,7 @@ public class UserService {
         return userRepository.findById(UUID.fromString(userId));
     }
 
-    public void UpdateUserById(String userId, UpdateUserDto updateUserDto) {
+    public void updateUserById(String userId, UpdateUserDto updateUserDto) {
         var id = UUID.fromString(userId);
         var userEntity = userRepository.findById(id);
 
