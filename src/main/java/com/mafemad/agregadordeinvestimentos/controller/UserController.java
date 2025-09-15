@@ -1,5 +1,10 @@
 package com.mafemad.agregadordeinvestimentos.controller;
 
+import com.mafemad.agregadordeinvestimentos.controller.dto.AccountResponseDTO;
+import com.mafemad.agregadordeinvestimentos.controller.dto.CreateAccountDTO;
+import com.mafemad.agregadordeinvestimentos.controller.dto.CreateUserDto;
+import com.mafemad.agregadordeinvestimentos.controller.dto.UpdateUserDto;
+import com.mafemad.agregadordeinvestimentos.entity.Account;
 import com.mafemad.agregadordeinvestimentos.entity.User;
 import com.mafemad.agregadordeinvestimentos.service.UserService;
 import org.springframework.http.ResponseEntity;
@@ -55,5 +60,21 @@ public class UserController {
     }
 
 
+    @PostMapping("/{userId}/accounts")
+    public ResponseEntity<Void> createAccount(@PathVariable("userId") String userId,
+                                              @RequestBody CreateAccountDTO createAccountDTO){
+
+        userService.createAccount(userId, createAccountDTO);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{userId}/accounts")
+    public ResponseEntity<List<AccountResponseDTO>> listAccounts(@PathVariable("userId") String userId){
+
+        var accounts = userService.listAccounts(userId);
+
+        return ResponseEntity.ok(accounts);
+    }
 
 }

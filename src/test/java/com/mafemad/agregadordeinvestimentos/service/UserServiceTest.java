@@ -1,7 +1,7 @@
 package com.mafemad.agregadordeinvestimentos.service;
 
-import com.mafemad.agregadordeinvestimentos.controller.CreateUserDto;
-import com.mafemad.agregadordeinvestimentos.controller.UpdateUserDto;
+import com.mafemad.agregadordeinvestimentos.controller.dto.CreateUserDto;
+import com.mafemad.agregadordeinvestimentos.controller.dto.UpdateUserDto;
 import com.mafemad.agregadordeinvestimentos.entity.User;
 import com.mafemad.agregadordeinvestimentos.repository.UserRepository;
 import org.junit.jupiter.api.DisplayName;
