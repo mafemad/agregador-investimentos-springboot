@@ -2,15 +2,14 @@ package com.mafemad.agregadordeinvestimentos.controller;
 
 import com.mafemad.agregadordeinvestimentos.controller.dto.CreateStockDTO;
 import com.mafemad.agregadordeinvestimentos.controller.dto.CreateUserDto;
+import com.mafemad.agregadordeinvestimentos.entity.Stock;
 import com.mafemad.agregadordeinvestimentos.entity.User;
 import com.mafemad.agregadordeinvestimentos.service.StockService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/stocks")
@@ -29,5 +28,10 @@ public class StockController {
         stockService.createStock(createStockDto);
 
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Stock>> getStocks(){
+        return ResponseEntity.ok(stockService.getStocks());
     }
 }
